@@ -1,0 +1,28 @@
+.product__item{
+
+    cursor: pointer;
+}
+.product__info h3{
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 10px ;
+}
+.prodcut__info a:hover{
+    color: indigo;
+}
+.product__info span{
+    font-size: 0.9rem;
+}
+.prodcut__card-bottom .price{
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.product__card-bottom span i{
+    font-size: 1rem;
+    padding: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50px;
+}
