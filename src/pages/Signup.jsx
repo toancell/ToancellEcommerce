@@ -11,6 +11,7 @@ import {storage} from '../firebase.config'
 import {db} from '../firebase.config';
 import {toast} from 'react-toastify';
 import "../styles/login.css"
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [username, setUsername]  = useState('')
@@ -18,7 +19,7 @@ const Signup = () => {
   const [password,setPassword] = useState("")
   const [file,setFile] = useState(null)
   const [loading,setLoading] = useState(false)
-
+  const navigate= useNavigate()
 
   const signup = async(e) =>{
       e.preventDefault();
@@ -47,7 +48,9 @@ const Signup = () => {
             })
           });
         });
-
+        setLoading(false);
+        toast.success("Acount created")
+        navigate('/login')
         console.log(user);
       }catch(error) {
         toast.error("something went wrong")
@@ -61,28 +64,33 @@ const Signup = () => {
       <section>
         <Container>
           <Row>
-            <Col lg='6' className='m-auto text-center'>
-              <h3 className='fw-bold fs-4'>Sign up</h3>
-              <Form className='auth__form' onSubmit={signup}>
-              <FormGroup className='form__group'>
-                  <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                </FormGroup>
-                <FormGroup className='form__group'>
-                  <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </FormGroup>
-                <FormGroup className='form__group'>
-                  <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </FormGroup>
-                <FormGroup>
-                  <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-                </FormGroup>
-                <button type='submit' className="buy__btn auth__btn">Create an account</button>
-                <p>
-                  Already hava an account ? {""}
-                  <Link to="/login"> Login</Link>
-                </p>
-              </Form>
-            </Col>
+            {
+              loading ? <Col lg='12' className='text-center'><h5 className='fw-bold'> Loading....</h5></Col> : (
+                <Col lg='6' className='m-auto text-center'>
+                  <h3 className='fw-bold fs-4'>Sign up</h3>
+                  <Form className='auth__form' onSubmit={signup}>
+                    <FormGroup className='form__group'>
+                      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    </FormGroup>
+                    <FormGroup className='form__group'>
+                      <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    </FormGroup>
+                    <FormGroup className='form__group'>
+                      <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    </FormGroup>
+                    <FormGroup>
+                      <input type="file" onChange={(e) => setFile(e.target.files[0])} />
+                    </FormGroup>
+                    <button type='submit' className="buy__btn auth__btn">Create an account</button>
+                    <p>
+                      Already hava an account ? {""}
+                    <Link to="/login"> Login</Link>
+                    </p>
+                  </Form>
+                </Col>
+              )
+            }
+            
           </Row>
         </Container>
       </section>

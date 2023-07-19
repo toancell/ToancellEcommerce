@@ -6,14 +6,19 @@ import {getStorage} from 'firebase/storage';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCkIcyc-jQAI56AMWVjZDGI68wXdh_8yAM",
-  authDomain: "tcshop2.firebaseapp.com",
-  projectId: "tcshop2",
-  storageBucket: "tcshop2.appspot.com",
-  messagingSenderId: "179976852484",
-  appId: "1:179976852484:web:e511e3cefd3df149b45151"
+  // apiKey: "AIzaSyAw0CWLGCxs0PEiT9vjl2vu_1KKbBexASs",
+  // authDomain: "shopecommerce-59d51.firebaseapp.com",
+  // projectId: "shopecommerce-59d51",
+  // storageBucket: "shopecommerce-59d51.appspot.com",
+  // messagingSenderId: "216492660981",
+  // appId: "1:216492660981:web:2be70f7c40eeb601db0dbc"
+  apiKey: "AIzaSyC6Qi34rI25c8zQg1bSSSSYVOM_d1lZsXk",
+  authDomain: "toannshop.firebaseapp.com",
+  projectId: "toannshop",
+  storageBucket: "toannshop.appspot.com",
+  messagingSenderId: "456644576643",
+  appId: "1:456644576643:web:6e0ff2a08dda53a6c822b6"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

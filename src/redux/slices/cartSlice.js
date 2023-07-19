@@ -41,9 +41,9 @@ const cartSlice = createSlice({
             state.totalQuantity = state.totalQuantity - existingItem.quantity;
         }
         state.totalAmount = state.cartItems.reduce((total,item) => total + Number(item.price) * Number(item.quantity),0)
-      }
-  },
-  
+    }
+},
+
 });
 
 export const cartActions = cartSlice.actions
